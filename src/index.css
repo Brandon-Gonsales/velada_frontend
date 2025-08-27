@@ -1,0 +1,264 @@
+:root {
+  --background-color: #0c0a1a; /* Azul oscuro casi negro del cielo */
+  --surface-color: #1a182d; /* Un tono ligeramente más claro para las tarjetas */
+  --primary-accent-color: #ff33a8; /* Magenta brillante del neón X */
+  --secondary-accent-color: #ffc94d; /* Naranja/dorado del texto del título */
+  --text-color: #e0e0e0; /* Texto principal casi blanco para contraste */
+  --text-color-light: #a0a0c0; /* Texto secundario más suave */
+  --border-color: #3c3a5e;
+  --error-color: #ff5252;
+  --success-color: #4caf50;
+  --font-family: 'Poppins', sans-serif;
+  --border-radius: 12px;
+  --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --neon-glow-primary: 0 0 5px var(--primary-accent-color), 0 0 10px var(--primary-accent-color), 0 0 15px var(--primary-accent-color);
+  --neon-glow-secondary: 0 0 5px var(--secondary-accent-color), 0 0 15px var(--secondary-accent-color);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--secondary-accent-color);
+  text-shadow: var(--neon-glow-secondary);
+}
+
+header p {
+  font-size: 1.2rem;
+  color: var(--text-color-light);
+  margin-top: 0.5rem;
+}
+
+.card {
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color-light);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-family: var(--font-family);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: #2a2845;
+  color: var(--text-color);
+}
+
+.form-control::placeholder {
+  color: #7a789d;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-accent-color);
+  box-shadow: 0 0 8px var(--primary-accent-color);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.75rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary {
+  background-color: var(--primary-accent-color);
+  color: white;
+  box-shadow: var(--neon-glow-primary);
+}
+
+.btn-primary:hover {
+  background-color: #ff66c2;
+  transform: translateY(-3px);
+  box-shadow: 0 0 8px var(--primary-accent-color), 0 0 20px var(--primary-accent-color), 0 0 30px var(--primary-accent-color);
+}
+
+.btn:disabled {
+  background-color: #555;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+h2 {
+  color: var(--secondary-accent-color);
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 5px rgba(255, 201, 77, 0.5);
+}
+
+.nominee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.nominee-card {
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nominee-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+.nominee-card h3 {
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  background-color: rgba(0,0,0,0.2);
+}
+
+.photo-gallery {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0 1.5rem 1.5rem;
+  gap: 1rem;
+}
+
+.photo-gallery::-webkit-scrollbar {
+  height: 8px;
+}
+
+.photo-gallery::-webkit-scrollbar-thumb {
+  background: var(--primary-accent-color);
+  border-radius: 4px;
+}
+
+.photo-item {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+.photo-item img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  display: block;
+}
+
+.whatsapp-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-button svg {
+  width: 30px;
+  height: 30px;
+}
+
+.admin-delete-btn, .photo-delete-btn {
+  position: absolute;
+  top: 1rem;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8rem;
+  background-color: var(--error-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+.admin-delete-btn { right: 1rem; }
+.photo-delete-btn { right: 1rem; }
+
+.photo-delete-btn:hover, .admin-delete-btn:hover {
+  opacity: 1;
+}
+
+.photo-delete-btn {
+  background-color: rgba(0,0,0,0.5);
+  border: 1px solid var(--error-color);
+  backdrop-filter: blur(5px);
+}
+
+.alert {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  font-weight: 600;
+}
+.alert-error { background-color: rgba(255, 82, 82, 0.1); border: 1px solid var(--error-color); color: var(--error-color); }
+.alert-success { background-color: rgba(76, 175, 80, 0.1); border: 1px solid var(--success-color); color: var(--success-color); }
+
+.login-container {
+  max-width: 450px;
+  margin: 5rem auto;
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
+}
